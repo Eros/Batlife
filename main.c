@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     //ensure that the directory actually exists, it should seeing as
     //it's one that is provided by Linux lol
     if((d = opendir(DATA_DIR)) == NULL) {
-        fprintf(stderr, "Could not open dir: %s\n", sterror(errno));
+        fprintf(stderr, "Could not open dir: %s\n", strerror(errno));
         return 3;
     }
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
         regex_t regex;
         //esure that the data that we need is in there, otherwise it's pretty damn useless
         if(regcomp(&regex, "BAT[[:alnum:]]+", REG_EXTENDED) != 0) {
-            fprintf(stderr, "Could not complete required regex: %s\n", sterror(errno));
+            fprintf(stderr, "Could not complete required regex: %s\n", strerror(errno));
             return 4;
         }
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
             ff = fopen(b, "r");
             if(fc != NULL && ff != NULL) {
                 if(fscanf(fc, "%ld", &current) != 1 || fscanf(ff, "%ld", &full) != 1) {
-                    fprintf(stderr, "Could not scan required fules: %s\n", sterror(errno));
+                    fprintf(stderr, "Could not scan required fules: %s\n", strerror(errno));
                 } else {
                     fprintf(stdout, "Current charge: %s %f\n", dp->d_name, (current / full) * 100.0);
                 }
