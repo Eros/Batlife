@@ -7,4 +7,4 @@
 
 #define DATA_DIR = "sys/class/power_supply"
 
-void run();
+void display_battery();
