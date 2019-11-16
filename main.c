@@ -15,6 +15,7 @@ int main(int argc, char **argv) {
     } else {
         while(true) {
             display_battery();
+            sleep(30);
         }
     }
     return 0;
