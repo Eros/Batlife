@@ -1,15 +1,18 @@
 #include "battery.h"
+#include<stdbool.h>
+
+bool windows;
 
 #ifdef _WIN32
-#define WIN_IN_USE true
+windows = true;
 #endif
 
 #ifdef LINUX 
-#define LIN_IN_USE true
+windows = false;
 #endif
 
 int main(int argc, char **argv) {
-    if(WIN_IN_USE) {
+    if(windows) {
         fprintf("[X] You cannot run this program on windows!");
         exit(0);
     } else {
