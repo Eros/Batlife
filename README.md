@@ -10,7 +10,3 @@ is at a 25% * X increment (aka 0-25-50-75-100 %).
 Pretty simple, reads the file that Linux generates from sys/class/power_supply runs a regex
 check to get ignore anything that is not needed then just spams the console with the battery
 life until it's told to stop.
-
-# Todo 
-
-Add a timer so that it prints every X minutes instead of every second.
