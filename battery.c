@@ -18,7 +18,7 @@ void display_battery() {
 
     if((d = opendir(DATA_DIR)) == NULL) {
         fprintf(stderr, "Could not open directory: %s\n", strerror(errno));
-        return 3;
+        exit(3);
     }
 
     //read the file and then get the battery life of it
@@ -30,7 +30,7 @@ void display_battery() {
         //should not be running at all...unless you're a wizzard
         if(regcomp(&regex, "BAT[[:alnum:]]+", REG_EXTENDED) != 0) {
             fprintf(stderr, "Could not complete the required regex: %s\n", strerror(errno));
-            return 4;
+            exit(4);
         }
 
         //reading the data from the file and then actually printing it
