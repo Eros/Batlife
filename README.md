@@ -13,4 +13,4 @@ life until it's told to stop.
 
 # Todo 
 
-Add a timer so that it prints every X minutes instead of every second.
+Change over the fprintf in main for when it does the linux check
