@@ -1,14 +1,18 @@
 #include "battery.h"
 #include<stdbool.h>
 
-bool windows;
+bool is_linux;
 
 #ifdef _WIN32
-windows = true;
+is_linux = false;
 #endif
 
 #ifdef LINUX 
-windows = false;
+is_linux = true;
+#endif
+
+#ifdef DARWIN 
+is_linux = false;
 #endif
 
 int main(int argc, char **argv) {
